@@ -67,6 +67,8 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [] **2 - Create a Database Model for Guilds**
 
+  - autoRole and mutedRole are null by default
+
 ```js
 {
   "_id": string,
@@ -77,7 +79,7 @@ You must fork this repository, and then clone it and then make changes on your o
 }
 ```
 
-  **Passport Configuration:**
+**Passport Configuration:**
 
 - [] **1** - Use the `passport.use` middleware to create a new DiscordStrategy with the required creditentials from environment variables. Urls supplied here must be part of the authentication route.
 
@@ -93,7 +95,8 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
 
-  **Prefix Route:**
+
+**Prefix Route:**
 
 - [] **1** - GET **/** - Should send JSON of mutual guildIds to their prefixes
 
@@ -116,11 +119,18 @@ You must fork this repository, and then clone it and then make changes on your o
 }
 ```
 
-  **Autorole Route(begins with /roles/autorole):**
+**Autorole Route(begins with /roles/autorole):**
 
 - [] **1** - GET **/:guildId** - Should send the current autorole for the associated guild if it exists. If the guild is not found mutually, send 404. If the guild does not have an autorole, send 404 Guild Autorole Not Found
 
-- [] **2** - POST **/:guildId** - Should update the guild with the roleId specified in the body. If guild is not found mutually, send 404. If role does not exist, send 404.
+- [] **2** - POST **/:guildId** - Should update the guild's auto role with the roleId specified in the body. If guild is not found mutually, send 404. If role does not exist, send 404.
+
+
+**Muted role Route(begins with /roles/mutedrole):**
+
+- [] **1** - GET **/:guildId** - Should send the current muted role for the associated guild if it exists. If the guild is not found mutually, send 404. If the guild does not have an mured role, send 404 Guild Muted Role Not Found
+
+- [] **2** - POST **/:guildId** - Should update the guild's muted role with the roleId specified in the body. If guild is not found mutually, send 404. If role does not exist, send 404.
 
 ## Restrictions
 
