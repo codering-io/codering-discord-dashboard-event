@@ -93,7 +93,28 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
 
+  **Prefix Route**
 
+- [] **1** - GET **/** - Should send JSON of mutual guildIds to their prefixes
+
+```js
+{
+  "mutualguildId1": "!",
+  "mutualguildId2": "?"
+}
+```
+
+- [] **2** - GET **/:guildId** - Should send JSON of guildId parameter to its prefix if the guild exists.
+
+- [] **3** - PUT **/:guildId** - Should update the guild associated with the id with the new prefix specified in the body.
+
+```js
+{
+  "body": {
+    "prefix": "!"
+  }
+}
+```
 
 ## Restrictions
 
