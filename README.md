@@ -44,8 +44,40 @@ You must fork this repository, and then clone it and then make changes on your o
   - **/prefix**
   - **/roles/autorole**
   - **/roles/mutedrole**
+  - **/auth**
 
 ## Explanation
+
+### Authenticating Users
+
+**Description:**
+  <br/>
+  Database Models:
+
+- [] **1 - Create a Database Model for Users**
+
+```js
+{
+  "_id": string
+  "guilds": Array<Guild>
+  "userId": snowflake,
+  "discordTag": string
+}
+```
+
+- [] **2 - Create a Database Model for Guilds**
+
+```js
+{
+  "_id": string,
+  "guildId": string,
+  "prefix": string,
+  "autoRole": snowflake,
+  "mutedRole": snowflake
+}
+```
+
+  
 
 ## Restrictions
 
