@@ -77,7 +77,23 @@ You must fork this repository, and then clone it and then make changes on your o
 }
 ```
 
-  
+  **Passport Configuration:**
+
+- [] **1** - Use the `passport.use` middleware to create a new DiscordStrategy with the required creditentials from environment variables. Urls supplied here must be part of the authentication route.
+
+- [] **2** - Set up a callback function for initializing the Discord Strategy such that it validates whether or not the authorized user is already in the database. If they are, attempt to update the database with their current discord tag. If they are not in the database, create a new user in the database using the profile parameter passed in the callback.
+
+- [] **3** - Create a new route for authentication and configure express to use it
+
+  **Authentication Route (begins with /auth):**
+
+- [] **1** - GET **/discord** - Passport should authenticate the user using this route
+
+- [] **2** - GET **/discord/redirect** - Redirect url, should also use passport authentication. Should redirect to /dashboard.
+
+- [] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
+
+
 
 ## Restrictions
 
