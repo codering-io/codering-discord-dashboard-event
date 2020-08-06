@@ -16,7 +16,7 @@
 
 ## Getting Started
 
-- There are a total of ??? tasks. You are only allowed to submit *one* task ***per*** pull request. You may submit a new Pull Request once yours is closed or merged. For example, you cannot submit 1 Pull Request with both tasks 1) and 2) together.
+- There are a total of 21 tasks. You are only allowed to submit *one* task ***per*** pull request. You may submit a new Pull Request once yours is closed or merged. For example, you cannot submit 1 Pull Request with both tasks 1) and 2) together.
 
 - Do not install any additional modules, the only npm packages needed are already listed in the package.json
 
@@ -52,7 +52,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
   **Database Models**:
 
-- [] **1 - Create a Database Model for Users**
+- [] **1** - Create a Database Model for Users
 
 ```js
 {
@@ -63,7 +63,7 @@ You must fork this repository, and then clone it and then make changes on your o
 }
 ```
 
-- [] **2 - Create a Database Model for Guilds**
+- [] **2** - Create a Database Model for Guilds
 
   - autoRole and mutedRole are null by default
 
