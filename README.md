@@ -12,11 +12,11 @@
   - React
   - Node.js
 - The goal is to build a working CRUD application that meets all requirements listed below.
-- The top contributor will win a \$50 Amazon Gift Card (x2 last event)
+- The top contributor will win a $50 Amazon Gift Card (x2 last event)
 
 ## Getting Started
 
-- There are a total of 21 tasks. You are only allowed to submit _one_ task **_per_** pull request. You may submit a new Pull Request once yours is closed or merged. For example, you cannot submit 1 Pull Request with both tasks 1) and 2) together.
+- There are a total of 21 tasks. You are only allowed to submit *one* task ***per*** pull request. You may submit a new Pull Request once yours is closed or merged. For example, you cannot submit 1 Pull Request with both tasks 1) and 2) together.
 
 - Do not install any additional modules, the only npm packages needed are already listed in the package.json
 
@@ -32,7 +32,7 @@
 
 ## How to contribute
 
-You must fork this repository, and then clone it and then make changes on your own fork. When you push, you will have your changes reflected on **your** fork only, not our repository. You must create a pull request _into_ the master branch of this repository. Once you've successfully created a pull request, be sure to verify it was created on the repository.
+You must fork this repository, and then clone it and then make changes on your own fork. When you push, you will have your changes reflected on **your** fork only, not our repository. You must create a pull request *into* the master branch of this repository. Once you've successfully created a pull request, be sure to verify it was created on the repository.
 
 ## Requirements
 
@@ -50,7 +50,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
 ### Authenticating Users
 
-**Database Models**:
+  **Database Models**:
 
 - [ ] **1** - Create a Database Model for Users
 
@@ -91,7 +91,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [ ] **2** - GET **/discord/redirect** - Redirect url, should also use passport authentication. Should redirect to /dashboard.
 
-- [] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
+- [ ] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
 
 ### Routes
 
