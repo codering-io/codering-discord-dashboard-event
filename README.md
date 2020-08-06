@@ -50,9 +50,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
 ### Authenticating Users
 
-**Description:**
-  <br/>
-  Database Models:
+  **Database Models**:
 
 - [] **1 - Create a Database Model for Users**
 
@@ -95,6 +93,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [] **3** - GET **/** - Should send client all information about the authorized user. If the user is not authorized, send `401 Unauthorized`
 
+### Routes
 
 **Prefix Route:**
 
@@ -125,12 +124,53 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [] **2** - POST **/:guildId** - Should update the guild's auto role with the roleId specified in the body. If guild is not found mutually, send 404. If role does not exist, send 404.
 
-
 **Muted role Route(begins with /roles/mutedrole):**
 
 - [] **1** - GET **/:guildId** - Should send the current muted role for the associated guild if it exists. If the guild is not found mutually, send 404. If the guild does not have an mured role, send 404 Guild Muted Role Not Found
 
 - [] **2** - POST **/:guildId** - Should update the guild's muted role with the roleId specified in the body. If guild is not found mutually, send 404. If role does not exist, send 404.
+
+### React Dashboard
+
+- [] **1** - Create simple login page for users who have yet to be authenticated.
+
+  - Should be on / route
+
+  - Mechanism for redirect to auth can be any valid form component
+
+  - Must redirect to discord auth page by sending a request to the auth/discord route
+
+- [] **2** - /dashboard
+
+  - Must include some way of displaying mutual guilds that the client user has "Manage Server" permissions for
+
+  - Navigation to guild config menus via react router
+
+- [] **3** - /dashboard/:guildId - Simple interface to navigate to prefix customization page, muted role customization page, and autorole customization page
+
+  - should use react router
+
+- [] **4** - /dashboard/:guildId/prefix
+
+  - Input Box for inputting a chosen prefix
+
+  - Submit Button to make PUT request to /prefix/:guildId with request body including submitted prefix
+
+- [] **5** - /dashboard/:guildId/autorole
+
+  - Before component mounts, the client should determine whether or not an autorole is set and store it in some value
+
+  - Dropdown menu which contains all of the roles in the guild
+
+  - Submit Button to send either a POST or PUT request(depending on the value mentioned) with the chosen role's id as the request body
+
+- [] **6** - /dashboard/:guildId/mutedrole
+
+  - Before component mounts, the client should determine whether or not a muted role is set and store it in some value
+
+  - Dropdown menu which contains all of the roles in the guild
+
+  - Submit Button to send either a POST or PUT request(depending on the value mentioned) with the chosen role's id as the request body
 
 ## Restrictions
 
