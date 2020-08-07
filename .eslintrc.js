@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     commonjs: true,
@@ -9,6 +10,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'airbnb-base',
+    'react-app',
+    'plugin:jsx-a11y/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'jsx-a11y',
   ],
   rules: {
     indent: [

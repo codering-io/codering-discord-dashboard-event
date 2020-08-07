@@ -1,8 +1,8 @@
-require("dotenv").config();
-require("./database/database");
+/* eslint-disable no-console */
+require('dotenv').config();
+require('./database/database');
 
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
 
 const app = express();
 app.use(express.json());
