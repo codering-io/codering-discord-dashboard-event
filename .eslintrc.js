@@ -41,5 +41,8 @@ module.exports = {
     'import/extensions': 'off',
     'no-console': ['error'],
     'import/prefer-default-export': 'off',
+    'import/no-dynamic-require': 'off',
+    'global-require': 'off',
+    'consistent-return': 'off',
   },
 };
