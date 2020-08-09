@@ -12,6 +12,7 @@ module.exports = {
     'airbnb-base',
     'react-app',
     'plugin:jsx-a11y/recommended',
+    'plugin:import/react'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -44,5 +45,13 @@ module.exports = {
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
     'consistent-return': 'off',
+    'react/prop-types': 'off',
   },
+  settings: {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
 };
