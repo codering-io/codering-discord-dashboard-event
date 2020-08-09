@@ -1,10 +1,10 @@
 import React from 'react';
-import ChalkraTutorial from './components/chakraTutorial/index.jsx';
+import ChakraTutorial from './components/chakraTutorial/index.jsx';
 
 function App() {
   return (
     <div >
-      <ChalkraTutorial/>
+      <ChakraTutorial/>
     </div>
   );
 }
