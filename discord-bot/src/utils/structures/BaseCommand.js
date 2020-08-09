@@ -4,4 +4,4 @@ module.exports = class BaseCommand {
     this.category = category;
     this.aliases = aliases;
   }
-}
+};
