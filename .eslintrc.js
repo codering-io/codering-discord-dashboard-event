@@ -12,7 +12,7 @@ module.exports = {
     'airbnb-base',
     'react-app',
     'plugin:jsx-a11y/recommended',
-    'plugin:import/react'
+    'plugin:import/react',
   ],
   parserOptions: {
     ecmaFeatures: {
