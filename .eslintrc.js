@@ -48,10 +48,10 @@ module.exports = {
     'react/prop-types': 'off',
   },
   settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx'],
-      },
-    },
-  },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
 };
