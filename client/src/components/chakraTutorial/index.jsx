@@ -10,7 +10,7 @@ const ChalkraTutorial = () => {
       {/*  Sets the initial text to the text.
       When this gets submitted is will set the text to the values */}
       <Formik
-        initalValues={{ prefix }}
+        initialValues={{ prefix }}
         onSubmit={(values) => {
           console.log(values);
         }}
