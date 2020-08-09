@@ -1,4 +1,4 @@
-
+/* eslint-disable no-await-in-loop */
 const path = require('path');
 const fs = require('fs').promises;
 const BaseCommand = require('./structures/BaseCommand');
@@ -40,7 +40,7 @@ async function registerEvents(client, dir = '') {
   }
 }
 
-module.exports = { 
-  registerCommands, 
+module.exports = {
+  registerCommands,
   registerEvents,
 };
