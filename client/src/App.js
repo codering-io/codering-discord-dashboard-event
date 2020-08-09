@@ -1,7 +1,7 @@
 import React from 'react';
-import ChakraTutorial from './components/chakraTutorial/index.jsx';
 import { NavLink as Link, Switch, Route } from 'react-router-dom';
 import { Button } from '@chakra-ui/core';
+import ChakraTutorial from './components/chakraTutorial/index.jsx';
 import SampleDashboard from './pages/dashboard/index';
 import SamplePage from './pages/sample/index';
 
@@ -17,7 +17,7 @@ function App() {
           Dashboard
             </Button>
           </Link>
-        <Link to='/chakratutorial'>
+          <Link to='/chakratutorial'>
             <Button variantColor="red">
           Chakra-Tutorial
             </Button>
