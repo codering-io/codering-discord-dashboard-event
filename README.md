@@ -81,7 +81,13 @@ You must fork this repository, and then clone it and then make changes on your o
 
 - [ ] **1** - Use the `passport.use` middleware to create a new DiscordStrategy with the required creditentials from environment variables. Urls supplied here must be part of the authentication route.
 
-- [ ] **2** - Set up a callback function for initializing the Discord Strategy such that it validates whether or not the authorized user is already in the database. If they are, attempt to update the database with their current discord tag. If they are not in the database, create a new user in the database using the profile parameter passed in the callback.
+- [ ] **2** - Set up a callback function for initializing the Discord Strategy such that it validates whether or not the authorized user is already in the database. If they are, attempt to update the database with their current discord tag. If they are not in the database, create a new user in the database using the profile parameter passed in the callback. **ONLY GUILDS THAT ARE:** 
+
+  - **MUTUAL BETWEEN THE USER AND THE BOT**
+  
+  - **HAVE THE MANAGE SERVERS PERMISSIONS (can be found by applying AND bitmask to the raw guild.permissions object from the discord api)**
+  
+  MAY BE PUT IN THE DATABASE
 
 - [ ] **3** - Create a new route for authentication and configure express to use it
 
@@ -190,7 +196,7 @@ You must fork this repository, and then clone it and then make changes on your o
   -  Fetch the muted role by the message's guildId
   -  Give that role to the user that was mentioned or their id was the second parameter
   -  Should send back 
-     -  if the roles was added successfully sent back 
+     - if the roles was added successfully sent back 
      -   if the user doesn't exist
      -   if the role of the guild is null
      -   if the role doesn't exist 
