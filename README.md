@@ -68,10 +68,10 @@ You must fork this repository, and then clone it and then make changes on your o
 
 ```js
 {
-  "_id": string
-  "guilds": Array<Guild>
-  "userId": snowflake,
-  "discordTag": string
+  "_id": objectId
+  "guilds": Array<guildObjectIds>
+  "userId": snowflake // string,
+  "discordTag": string // string
 }
 ```
 
@@ -81,11 +81,11 @@ You must fork this repository, and then clone it and then make changes on your o
 
 ```js
 {
-  "_id": string,
+  "_id": objectId,
   "guildId": string,
   "prefix": string,
-  "autoRole": snowflake,
-  "mutedRole": snowflake
+  "autoRole": snowflake // string,
+  "mutedRole": snowflake // string
 }
 ```
 
