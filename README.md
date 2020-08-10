@@ -29,6 +29,18 @@
 - Start up the react application by running `npm run start`. This automatically sets up a live testing environment in your default browser on port 3000.
 
 - Please make sure you have Node.JS Installed, all of the required package dependencies, as well as MongoDB running on Port 27017.
+- The .env in the server folder (server/.env) should have 
+    ```
+    CLIENT_ID
+    CLIENT_SECRET
+    CLIENT_CALLBACK_URL
+    MONO_URI
+    BOT_TOKEN
+    ```
+ - The .env in the discord-bot folder (discord-bot/.env) should have
+    ```
+    BOT_TOKEN
+    ```
 
 ## How to contribute
 
