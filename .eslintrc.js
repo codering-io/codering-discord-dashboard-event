@@ -46,6 +46,7 @@ module.exports = {
     'global-require': 'off',
     'consistent-return': 'off',
     'react/prop-types': 'off',
+    'no-bitwise': 'off',
   },
   settings: {
     "import/resolver": {
