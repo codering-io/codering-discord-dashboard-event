@@ -89,7 +89,7 @@ You must fork this repository, and then clone it and then make changes on your o
   
   **MAY BE PUT IN THE DATABASE**
 
-- [ ] **3** - Create a new route for authentication and configure express to use it
+- [ ] **3** - Create a new router for authentication (see details of it below) and configure express to use it
 
   **Authentication Route (begins with /auth):**
 
