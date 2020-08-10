@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const BaseEvent = require('../../utils/structures/BaseEvent');
 
 module.exports = class ReadyEvent extends BaseEvent {
