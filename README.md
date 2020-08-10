@@ -1,6 +1,6 @@
 # Code Ring Event
 
-## Saturday, Monday 10th 12 PM EST - Monday, August 24th 12 PM EST
+## Monday, August 10th 12 PM EST - Monday, August 24th 12 PM EST
 
 ## Synopsis
 
