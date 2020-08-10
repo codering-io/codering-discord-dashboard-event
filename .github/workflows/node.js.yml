@@ -7,12 +7,10 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    types: [labeled]
     branches: [ master ]
 
 jobs:
   build:
-    if: contains(github.event.pull_request.labels.*.name, 'stage-test') || contains(github.ref, 'master')
 
     runs-on: ubuntu-latest
     steps:
