@@ -29,6 +29,18 @@
 - Start up the react application by running `npm run start`. This automatically sets up a live testing environment in your default browser on port 3000.
 
 - Please make sure you have Node.JS Installed, all of the required package dependencies, as well as MongoDB running on Port 27017.
+- The .env in the server folder (server/.env) should have 
+    ```
+    CLIENT_ID
+    CLIENT_SECRET
+    CLIENT_CALLBACK_URL
+    MONO_URI
+    BOT_TOKEN
+    ```
+ - The .env in the discord-bot folder (discord-bot/.env) should have
+    ```
+    BOT_TOKEN
+    ```
 
 ## How to contribute
 
@@ -56,24 +68,24 @@ You must fork this repository, and then clone it and then make changes on your o
 
 ```js
 {
-  "_id": string
-  "guilds": Array<Guild>
-  "userId": snowflake,
-  "discordTag": string
+  "_id": objectId
+  "guilds": Array<guildObjectIds>
+  "userId": snowflake // string,
+  "discordTag": string // string
 }
 ```
 
-- [ ] **2** - Create a Database Model for Guilds
+- [x] **2** - Create a Database Model for Guilds
 
   - autoRole and mutedRole are null by default
 
 ```js
 {
-  "_id": string,
+  "_id": objectId,
   "guildId": string,
   "prefix": string,
-  "autoRole": snowflake,
-  "mutedRole": snowflake
+  "autoRole": snowflake // string,
+  "mutedRole": snowflake // string
 }
 ```
 
@@ -89,7 +101,7 @@ You must fork this repository, and then clone it and then make changes on your o
   
   **MAY BE PUT IN THE DATABASE**
 
-- [ ] **3** - Create a new route for authentication and configure express to use it
+- [ ] **3** - Create a new router for authentication (see details of it below) and configure express to use it
 
   **Authentication Route (begins with /auth):**
 
