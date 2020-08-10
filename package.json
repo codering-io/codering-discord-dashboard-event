@@ -1,0 +1,35 @@
+{
+  "name": "codering-discord-dashboard-event",
+  "version": "1.0.0",
+  "description": "Event hosted by Code Ring Discord Server",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.jsx . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codering-io/codering-discord-dashboard-event.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codering-io/codering-discord-dashboard-event/issues"
+  },
+  "homepage": "https://github.com/codering-io/codering-discord-dashboard-event#readme"
+}
