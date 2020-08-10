@@ -63,7 +63,7 @@ You must fork this repository, and then clone it and then make changes on your o
 }
 ```
 
-- [ ] **2** - Create a Database Model for Guilds
+- [x] **2** - Create a Database Model for Guilds
 
   - autoRole and mutedRole are null by default
 
