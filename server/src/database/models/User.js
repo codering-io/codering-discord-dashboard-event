@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const User = new mongoose.Schema({
-  guilds: { type: Array, required: true },
+  guilds: { type: [mongoose.Types.ObjectId], ref: "guilds", required: true },
   userId: { type: String, required: true },
   discordTag: { type: String, required: true }
 });
