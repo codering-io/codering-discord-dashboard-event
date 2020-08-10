@@ -64,7 +64,7 @@ You must fork this repository, and then clone it and then make changes on your o
 
   **Database Models**:
 
-- [ ] **1** - Create a Database Model for Users
+- [x] **1** - Create a Database Model for Users
 
 ```js
 {
