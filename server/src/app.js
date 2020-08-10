@@ -7,10 +7,7 @@ const User = require("./database/models/User");
 
 const passport = require("passport");
 const { Strategy } = require("passport-discord");
-
-const { Client, Permissions } = require('discord.js');
-const client = new Client();
-client.login(process.env.BOT_TOKEN);
+const axios = require("axios");
 
 passport.use(new Strategy({
   clientID: process.env.CLIENT_ID,
@@ -21,8 +18,12 @@ passport.use(new Strategy({
   let user = await User.findOne({ userId: profile.id });
   if (!user) {
     let userGuilds = profile.guilds.filter(g => {
-      let permissions = new Permissions(g.permissions);
-      if (permissions.has("MANAGE_GUILD") && client.guilds.cache.has(g.id)) return true;
+      let guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
+        headers: {
+          "Authorization": `BOT ${process.env.BOT_TOKEN}`
+        }
+      });
+      if ((g.permissions & 32) === 32 && guilds.some(i => i.id === g.id)) return true;
       return false;
     });
     let objIds = [];
@@ -43,8 +44,12 @@ passport.use(new Strategy({
     })).save();
   } else {
     let userGuilds = profile.guilds.filter(g => {
-      let permissions = new Permissions(g.permissions);
-      if (permissions.has("MANAGE_GUILD") && client.guilds.cache.has(g.id)) return true;
+      let guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
+        headers: {
+          "Authorization": `BOT ${process.env.BOT_TOKEN}`
+        }
+      });
+      if ((g.permissions & 32) === 32 && guilds.some(i => i.id === g.id)) return true;
       return false;
     });
     let objIds = [];
