@@ -18,16 +18,16 @@ passport.use(new Strategy({
   callbackURL: process.env.CLIENT_CALLBACK_URL,
   scope: ["identify", "guilds"]
 }, async (accessToken, refreshToken, profile, done) => {
-  var user = await User.findOne({ userId: profile.id });
+  let user = await User.findOne({ userId: profile.id });
   if (!user) {
-    var userGuilds = profile.guilds.filter(g => {
-      var permissions = new Permissions(g.permissions);
+    let userGuilds = profile.guilds.filter(g => {
+      let permissions = new Permissions(g.permissions);
       if (permissions.has("MANAGE_GUILD") && client.guilds.cache.has(g.id)) return true;
       return false;
     });
-    var objIds = [];
-    for (var g of userGuilds) {
-      var guild = await Guild.findOne({ guildId: g.id });
+    let objIds = [];
+    for (let g of userGuilds) {
+      let guild = await Guild.findOne({ guildId: g.id });
       if (!guild) {
         guild = (new Guild({
           guildId: g.id,
@@ -42,14 +42,14 @@ passport.use(new Strategy({
       guilds: objIds
     })).save();
   } else {
-    var userGuilds = profile.guilds.filter(g => {
-      var permissions = new Permissions(g.permissions);
+    let userGuilds = profile.guilds.filter(g => {
+      let permissions = new Permissions(g.permissions);
       if (permissions.has("MANAGE_GUILD") && client.guilds.cache.has(g.id)) return true;
       return false;
     });
-    var objIds = [];
-    for (var g of userGuilds) {
-      var guild = await Guild.findOne({ guildId: g.id });
+    let objIds = [];
+    for (let g of userGuilds) {
+      let guild = await Guild.findOne({ guildId: g.id });
       if (!guild) {
         guild = (new Guild({
           guildId: g.id,
