@@ -172,6 +172,30 @@ You must fork this repository, and then clone it and then make changes on your o
 
   - Submit Button to send either a POST or PUT request(depending on the value mentioned) with the chosen role's id as the request body
 
+### Discord Bot
+
+- [ ] **1** - Create simple auto role feature
+
+  - Should give a role to the joining user
+  - This should fetch the role from the backend based on the guildId
+
+- [ ] **2** - Create mute command
+  -  Example command
+  ```
+  (prefix)mute 818382819092938
+  (prefix)mute @Creeper#4717
+  ```
+  - This will take the message's guildId and fetch the prefix from the backend
+  -  If the message doesn't start with the prefix from the fetched guild then return
+  -  Fetch the muted role by the message's guildId
+  -  Give that role to the user that was mentioned or their id was the second parameter
+  -  Should send back 
+     -  if the roles was added successfully sent back 
+     -   if the user doesn't exist
+     -   if the role of the guild is null
+     -   if the role doesn't exist 
+     -   if the role couldn't be added to the user (do to permissions, or other)
+ 
 ## Restrictions
 
 - Do not create multiple pull requests. You can only have 1 opened pull request at all times.
