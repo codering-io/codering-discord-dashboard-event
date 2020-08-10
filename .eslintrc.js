@@ -37,6 +37,7 @@ module.exports = {
       'error',
       'always',
     ],
+    'react/prop-types': 'off',
     'linebreak-style': 'off',
     'class-methods-use-this': 'off',
     'import/extensions': 'off',
@@ -45,7 +46,6 @@ module.exports = {
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
     'consistent-return': 'off',
-    'react/prop-types': 'off',
   },
   settings: {
     "import/resolver": {
