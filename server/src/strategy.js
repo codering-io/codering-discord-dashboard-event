@@ -63,6 +63,7 @@ passport.use(new Strategy({
     }
     User.findOneAndUpdate({ discordTag: `${profile.username}#${profile.discriminator}`, guilds: objIds });
   }
+  done();
 }));
 
 module.exports = passport;
