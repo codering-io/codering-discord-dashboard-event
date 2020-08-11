@@ -23,12 +23,12 @@ passport.use(new Strategy({
   try {
     let user = await User.findOne({ userId: profile.id });
     if (!user) {
+      const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
+        headers: {
+          Authorization: `Bot ${process.env.BOT_TOKEN}`,
+        },
+      });
       const userGuilds = profile.guilds.filter(async (g) => {
-        const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
-          headers: {
-            Authorization: `Bot ${process.env.BOT_TOKEN}`,
-          },
-        });
         if ((g.permissions & 32) === 32 && guilds.some((i) => i.id === g.id)) return true;
         return false;
       });
