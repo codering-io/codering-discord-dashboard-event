@@ -4,6 +4,8 @@ require('./database/database');
 
 const express = require('express');
 
+const session = require('express-session');
+
 const passport = require('./strategy');
 
 const authenticationRouter = require('./routers/authentication');
@@ -15,13 +17,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   session({
-    secret: "Testing",
+    secret: 'Testing',
     cookie: {
       maxAge: 60 * 1000 * 60 * 24,
     },
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 
 app.use('/api/auth/', authenticationRouter);
