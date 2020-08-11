@@ -23,11 +23,11 @@ passport.use(new Strategy({
   try {
     let user = await User.findOne({ userId: profile.id });
     if (!user) {
-      const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
+      const guilds = (await axios.get('https://discord.com/api/v6/users/@me/guilds', {
         headers: {
           Authorization: `Bot ${process.env.BOT_TOKEN}`,
         },
-      });
+      })).data;
       const userGuilds = profile.guilds.filter(async (g) => {
         if ((g.permissions & 32) === 32 && guilds.some((i) => i.id === g.id)) return true;
         return false;
@@ -44,18 +44,18 @@ passport.use(new Strategy({
         }
         objIds.push(guild.id);
       }
-      user = (new User({
+      user = await (new User({
         userId: profile.id,
         discordTag: `${profile.username}#${profile.discriminator}`,
         guilds: objIds,
       })).save();
     } else {
+      const guilds = (await axios.get('https://discord.com/api/v6/users/@me/guilds', {
+        headers: {
+          Authorization: `Bot ${process.env.BOT_TOKEN}`,
+        },
+      })).data;
       const userGuilds = profile.guilds.filter(async (g) => {
-        const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
-          headers: {
-            Authorization: `Bot ${process.env.BOT_TOKEN}`,
-          },
-        });
         if ((g.permissions & 32) === 32 && guilds.some((i) => i.id === g.id)) return true;
         return false;
       });
@@ -71,7 +71,7 @@ passport.use(new Strategy({
         }
         objIds.push(guild.id);
       }
-      user = User.findOneAndUpdate({ discordTag: `${profile.username}#${profile.discriminator}`, guilds: objIds });
+      user = await User.findOneAndUpdate({ discordTag: `${profile.username}#${profile.discriminator}`, guilds: objIds });
     }
     done(null, user);
   } catch (e) {
