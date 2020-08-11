@@ -2,9 +2,9 @@
 require('dotenv').config();
 require('./database/database');
 
-const passport = require("./strategy");
-
 const express = require('express');
+const passport = require('./strategy');
+
 
 const app = express();
 app.use(express.json());
