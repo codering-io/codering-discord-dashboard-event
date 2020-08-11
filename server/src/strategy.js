@@ -5,6 +5,15 @@ const axios = require('axios');
 const User = require('./database/models/User');
 const Guild = require('./database/models/Guild');
 
+passport.serializeUser((user, done) => {
+  done(null, user.userId);
+});
+
+passport.deserializeUser(async (userId, done) => {
+  const user = await User.findOne({ userId });
+  return user && done(null, user);
+});
+
 passport.use(new Strategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
