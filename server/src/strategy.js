@@ -37,18 +37,19 @@ passport.use(new Strategy({
         // eslint-disable-next-line no-await-in-loop
         let guild = await Guild.findOne({ guildId: g.id });
         if (!guild) {
-          guild = (new Guild({
+          // eslint-disable-next-line no-await-in-loop
+          guild = await Guild.create({
             guildId: g.id,
             prefix: '!',
-          })).save();
+          });
         }
         objIds.push(guild.id);
       }
-      user = await (new User({
+      user = await User.create({
         userId: profile.id,
         discordTag: `${profile.username}#${profile.discriminator}`,
         guilds: objIds,
-      })).save();
+      });
     } else {
       const guilds = (await axios.get('https://discord.com/api/v6/users/@me/guilds', {
         headers: {
@@ -64,10 +65,11 @@ passport.use(new Strategy({
         // eslint-disable-next-line no-await-in-loop
         let guild = await Guild.findOne({ guildId: g.id });
         if (!guild) {
-          guild = (new Guild({
+          // eslint-disable-next-line no-await-in-loop
+          guild = await Guild.create({
             guildId: g.id,
             prefix: '!',
-          })).save();
+          });
         }
         objIds.push(guild.id);
       }
