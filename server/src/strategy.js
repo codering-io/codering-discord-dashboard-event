@@ -17,7 +17,7 @@ passport.use(new Strategy({
       const userGuilds = profile.guilds.filter(async (g) => {
         const guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
           headers: {
-            Authorization: `BOT ${process.env.BOT_TOKEN}`,
+            Authorization: `Bot ${process.env.BOT_TOKEN}`,
           },
         });
         if ((g.permissions & 32) === 32 && guilds.some((i) => i.id === g.id)) return true;
@@ -44,7 +44,7 @@ passport.use(new Strategy({
       const userGuilds = profile.guilds.filter(async (g) => {
         const guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
           headers: {
-            Authorization: `BOT ${process.env.BOT_TOKEN}`,
+            Authorization: `Bot ${process.env.BOT_TOKEN}`,
           },
         });
         if ((g.permissions & 32) === 32 && guilds.some((i) => i.id === g.id)) return true;
