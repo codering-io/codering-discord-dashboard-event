@@ -62,7 +62,7 @@ passport.use(new Strategy({
         }
         objIds.push(guild.id);
       }
-      User.findOneAndUpdate({ discordTag: `${profile.username}#${profile.discriminator}`, guilds: objIds });
+      user = User.findOneAndUpdate({ discordTag: `${profile.username}#${profile.discriminator}`, guilds: objIds });
     }
     done(null, user);
   } catch (e) {
