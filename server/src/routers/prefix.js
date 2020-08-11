@@ -17,19 +17,26 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:guildId', async (req, res) => {
-  req.user = req.session.user;
-  if (!req.user) return res.sendStatus(401);
-  const { guildId } = req.params;
-  const guild = await Guild.findOne({ guildId });
-  if (!guild) return res.sendStatus(404);
-  if (!req.user.guilds.find(async (i) => {
-    const g = await Guild.findById(i);
-    if (g.guildId === guildId) return true;
-    return false;
-  })) return res.sendStatus(404);
-  // ^ 404 is in the requirements, HOWEVER we should make
-  //   it 401 as it exists but isn't managable by the user.
-  res.send({ guildId, prefix: guild.prefix });
+  if (req.headers.token && req.headers.token === process.env.AUTH_TOKEN) {
+    const { guildId } = req.params;
+    const guild = await Guild.findOne({ guildId });
+    if (!guild) return res.sendStatus(404);
+    res.send({ guildId, prefix: guild.prefix });
+  } else {
+    req.user = req.session.user;
+    if (!req.user) return res.sendStatus(401);
+    const { guildId } = req.params;
+    const guild = await Guild.findOne({ guildId });
+    if (!guild) return res.sendStatus(404);
+    if (!req.user.guilds.find(async (i) => {
+      const g = await Guild.findById(i);
+      if (g.guildId === guildId) return true;
+      return false;
+    })) return res.sendStatus(404);
+    // ^ 404 is in the requirements, HOWEVER we should make
+    //   it 401 as it exists but isn't managable by the user.
+    res.send({ guildId, prefix: guild.prefix });
+  }
 });
 
 module.exports = router;
