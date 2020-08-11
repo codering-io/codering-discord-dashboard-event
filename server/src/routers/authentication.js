@@ -13,4 +13,5 @@ router.get('/', passport.authenticate('discord'), async (req, res) => {
   res.send({ guilds: req.user.guilds, userId: req.user.userId, discordTag: req.user.discordTag });
 });
 
+// eslint-disable-next-line eol-last
 module.exports = router;
