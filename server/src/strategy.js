@@ -15,7 +15,7 @@ passport.use(new Strategy({
     let user = await User.findOne({ userId: profile.id });
     if (!user) {
       const userGuilds = profile.guilds.filter(async (g) => {
-        const guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
+        const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
           headers: {
             Authorization: `Bot ${process.env.BOT_TOKEN}`,
           },
@@ -42,7 +42,7 @@ passport.use(new Strategy({
       })).save();
     } else {
       const userGuilds = profile.guilds.filter(async (g) => {
-        const guilds = await axios.get(`https://discord.com/api/v6/users/${process.env.CLIENT_ID}/guilds`, {
+        const guilds = await axios.get('https://discord.com/api/v6/users/@me/guilds', {
           headers: {
             Authorization: `Bot ${process.env.BOT_TOKEN}`,
           },
