@@ -6,9 +6,8 @@ const router = Router();
 
 const Guild = require('../database/models/Guild');
 
-const passport = require('../strategy');
-
-router.get('/', passport.authenticate('discord'), async (req, res) => {
+router.get('/', async (req, res) => {
+  req.user = req.session.user;
   if (!req.user) return res.sendStatus(401);
   const prefix = {};
   for (const guild of req.user.guilds) {
