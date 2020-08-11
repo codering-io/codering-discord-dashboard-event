@@ -1,7 +1,7 @@
-
 const passport = require('passport');
 const { Strategy } = require('passport-discord');
 const axios = require('axios');
+
 const User = require('./database/models/User');
 const Guild = require('./database/models/Guild');
 

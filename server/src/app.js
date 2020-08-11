@@ -5,7 +5,6 @@ require('./database/database');
 const express = require('express');
 const passport = require('./strategy');
 
-
 const app = express();
 app.use(express.json());
 
