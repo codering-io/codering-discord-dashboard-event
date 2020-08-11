@@ -1,5 +1,3 @@
-/* eslint-disable eol-last */
-/* eslint-disable no-trailing-spaces */
 const { Router } = require('express');
 
 const router = Router();
@@ -18,4 +16,4 @@ router.get('/', async (req, res) => {
   res.send(prefix);
 });
 
-module.exports = router; 
+module.exports = router;
