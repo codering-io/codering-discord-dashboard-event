@@ -91,9 +91,9 @@ You must fork this repository, and then clone it and then make changes on your o
 
 **Passport Configuration:**
 
-- [ ] **1** - Use the `passport.use` middleware to create a new DiscordStrategy with the required creditentials from environment variables. Urls supplied here must be part of the authentication route.
+- [X] **1** - Use the `passport.use` middleware to create a new DiscordStrategy with the required creditentials from environment variables. Urls supplied here must be part of the authentication route.
 
-- [ ] **2** - Set up a callback function for initializing the Discord Strategy such that it validates whether or not the authorized user is already in the database. If they are, attempt to update the database with their current discord tag. If they are not in the database, create a new user in the database using the profile parameter passed in the callback. **ONLY GUILDS THAT ARE:** 
+- [X] **2** - Set up a callback function for initializing the Discord Strategy such that it validates whether or not the authorized user is already in the database. If they are, attempt to update the database with their current discord tag. If they are not in the database, create a new user in the database using the profile parameter passed in the callback. **ONLY GUILDS THAT ARE:** 
 
   - **MUTUAL BETWEEN THE USER AND THE BOT**
   
