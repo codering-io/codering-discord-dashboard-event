@@ -28,8 +28,9 @@ passport.use(new Strategy({
           Authorization: `Bot ${process.env.BOT_TOKEN}`,
         },
       })).data;
-      // eslint-disable-next-line max-len
-      const userGuilds = profile.guilds.filter(async (g) => (g.permissions & 32) === 32 && guilds.find((bg) => (bg.id === g.id)));
+      const userGuilds = profile.guilds.filter((ug) => (
+        (ug.permissions & 0x20) === 32 && guilds.find((bg) => (bg.id === ug.id))
+      ));
       const objIds = [];
       for (const g of userGuilds) {
         // eslint-disable-next-line no-await-in-loop
@@ -54,8 +55,9 @@ passport.use(new Strategy({
           Authorization: `Bot ${process.env.BOT_TOKEN}`,
         },
       })).data;
-      // eslint-disable-next-line max-len
-      const userGuilds = profile.guilds.filter(async (g) => (g.permissions & 32) === 32 && guilds.find((bg) => (bg.id === g.id)));
+      const userGuilds = profile.guilds.filter((ug) => (
+        (ug.permissions & 0x20) === 32 && guilds.find((bg) => (bg.id === ug.id))
+      ));
       const objIds = [];
       for (const g of userGuilds) {
         // eslint-disable-next-line no-await-in-loop
