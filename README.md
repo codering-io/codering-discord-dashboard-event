@@ -34,7 +34,7 @@
     CLIENT_ID
     CLIENT_SECRET
     CLIENT_CALLBACK_URL
-    MONO_URI
+    MONGO_URI
     BOT_TOKEN
     ```
  - The .env in the discord-bot folder (discord-bot/.env) should have
