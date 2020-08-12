@@ -27,20 +27,5 @@ app.use(session({
 app.use('/api/auth/', authenticationRouter);
 app.use('/api/prefix/', prefixRouter);
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(session({
-  secret: 'Testing',
-  cookie: {
-    maxAge: 60 * 1000 * 60 * 24,
-  },
-  resave: false,
-  saveUninitialized: false,
-}));
-
-app.use('/api/auth/', authenticationRouter);
-app.use('/api/prefix/', prefixRouter);
-
 const PORT = 3001;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
