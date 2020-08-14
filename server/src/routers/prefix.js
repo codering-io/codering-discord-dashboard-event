@@ -26,9 +26,7 @@ router.get('/:guildId', async (req, res) => {
     const g = await Guild.findById(i);
     if (g.guildId === guildId) return true;
     return false;
-  })) return res.sendStatus(404);
-  // ^ 404 is in the requirements, HOWEVER we should make
-  //   it 401 as it exists but isn't managable by the user.
+  })) return res.sendStatus(401);
   res.send({ guildId, prefix: guild.prefix });
 });
 
