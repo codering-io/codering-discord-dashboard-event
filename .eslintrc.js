@@ -40,13 +40,15 @@ module.exports = {
     'linebreak-style': 'off',
     'class-methods-use-this': 'off',
     'import/extensions': 'off',
-    'no-console': ['error'],
     'import/prefer-default-export': 'off',
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
     'consistent-return': 'off',
     'react/prop-types': 'off',
     'no-bitwise': 'off',
+    "no-param-reassign": 0,
+    "no-console": "off",
+    "new-cap": 0
   },
   settings: {
     "import/resolver": {
