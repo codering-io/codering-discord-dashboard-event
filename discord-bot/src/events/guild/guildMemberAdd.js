@@ -15,7 +15,7 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
       }
 
       const autoRole = guildMember.guild.roles.cache.get(guildTable.config.autoRole);
-      if (autoRole) {guildMember.roles.add(autoRole)}
+      if (autoRole) { guildMember.roles.add(autoRole); }
     });
   }
 };

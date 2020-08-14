@@ -34,7 +34,7 @@ module.exports = class TestCommand extends BaseCommand {
         return 0;
       }
       if (!rolemute) {
-        message.channel.send('Set up a role for silenced members by typing:\n\n' + guildTable.prefix + 'configmute @role');
+        message.channel.send(`Set up a role for silenced members by typing:\n\n${guildTable.prefix}configmute @role`);
         return 0;
       }
       if (!mention) {
@@ -43,9 +43,9 @@ module.exports = class TestCommand extends BaseCommand {
       }
       if (!message.guild.roles.cache.get(rolemute)) {
         message.channel
-          .send('I think the role has been deleted, configure it again!')
+          .send('I think the role has been deleted, configure it again!');
         guildTable.config.mutedRole = '';
-        guildTable.save()
+        guildTable.save();
         return 0;
       }
       if (mention.roles.cache.has(rolemute)) {

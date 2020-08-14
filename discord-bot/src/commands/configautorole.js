@@ -1,10 +1,10 @@
-const BaseCommand = require("../utils/structures/BaseCommand");
-const { guild, CreateNewGuildEntry } = require("../database/Guild");
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require('discord.js');
+const BaseCommand = require('../utils/structures/BaseCommand');
+const { guild, CreateNewGuildEntry } = require('../database/Guild');
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super("autorole", "configautorole", []);
+    super('autorole', 'configautorole', []);
   }
 
   async run(client, message, args) {
@@ -15,22 +15,22 @@ module.exports = class TestCommand extends BaseCommand {
       }
       if (!guildTable) {
         CreateNewGuildEntry(message.guild.id);
-        message.reply("Try again!");
+        message.reply('Try again!');
         return 1;
       }
-      var role = message.mentions.roles.first();
+      const role = message.mentions.roles.first();
       if (!role) {
-        message.reply("Ops, this isn't a role!");
+        message.reply('Ops, this isn\'t a role!');
         return 0;
       }
       guildTable.config.autoRole = role.id;
       guildTable
         .save()
         .then(() => {
-          let embed = new MessageEmbed()
+          const embed = new MessageEmbed()
             .setTitle(message.guild.name)
             .setDescription(`New role to Auto Role: ${role}`)
-            .setColor("RANDOM")
+            .setColor('RANDOM')
             .setFooter(message.guild.name, message.guild.iconURL)
             .setTimestamp();
           message.channel.send(embed);

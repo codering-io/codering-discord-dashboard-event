@@ -39,8 +39,8 @@ module.exports = class TestCommand extends BaseCommand {
             .setFooter(message.guild.name, message.guild.iconURL)
             .setTimestamp();
           message.channel.send(embed);
-        })
-      message.channel.send('Error!')
+        });
+      message.channel.send('Error!');
     });
   }
 };

@@ -1,22 +1,21 @@
-const mongoose = require('mongoose');
+const Mongoose = require('mongoose');
 
 const prefix = process.env.DISCORD_BOT_PREFIX;
 const mongoURL = process.env.mongo_URI;
 
-mongoose.connect(
+Mongoose.connect(
   mongoURL,
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true },
   (error) => {
     if (error) {
       console.log(`Erro: ${error}`);
       process.exit(1);
-      return 1;
     }
     console.log('Conected to the database');
     return 0;
-  }
+  },
 );
-const Schema = mongoose.Schema;
+const { Schema } = Mongoose;
 const ConfigSchema = new Schema({
   mutedRole: String,
   autoRole: String,
@@ -28,10 +27,10 @@ const GuildSchema = new Schema({
   config: ConfigSchema,
 });
 
-const guild = mongoose.model('guildsCodering', GuildSchema);
+const guild = Mongoose.model('guildsCodering', GuildSchema);
 
 const CreateNewGuildEntry = (guildID) => {
-  let newGuild = new guild({
+  const newGuild = new guild({
     _id: guildID,
     prefix,
     config: {
@@ -39,7 +38,7 @@ const CreateNewGuildEntry = (guildID) => {
       autoRole: '',
     },
   });
-  newGuild.save()
+  newGuild.save();
 };
 
 module.exports = {
