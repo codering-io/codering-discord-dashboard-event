@@ -1,5 +1,5 @@
 const BaseCommand = require("../utils/structures/BaseCommand");
-var { guild, createNewGuildEntry } = require("../database/Guild");
+const { guild, CreateNewGuildEntry } = require("../database/Guild");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = class TestCommand extends BaseCommand {
@@ -14,7 +14,7 @@ module.exports = class TestCommand extends BaseCommand {
         return 1;
       }
       if (!guildTable) {
-        createNewGuildEntry(message.guild.id);
+        CreateNewGuildEntry(message.guild.id);
         message.reply("Try again!");
         return 1;
       }

@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-const BaseEvent = require('../../utils/structures/BaseEvent');
+const BaseEvent = require("../../utils/structures/BaseEvent");
 
 module.exports = class ReadyEvent extends BaseEvent {
   constructor() {
-    super('ready');
+    super("ready");
   }
 
   async run(client) {

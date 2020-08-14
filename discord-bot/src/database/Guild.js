@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 const prefix = process.env.DISCORD_BOT_PREFIX;
 const mongoURL = process.env.mongo_URI;
 
@@ -11,37 +12,37 @@ mongoose.connect(
       process.exit(1);
       return 1;
     }
-    console.log("Conected to the database");
+    console.log('Conected to the database');
     return 0;
   }
 );
-var Schema = mongoose.Schema;
-var ConfigSchema = new Schema({
+const Schema = mongoose.Schema;
+const ConfigSchema = new Schema({
   mutedRole: String,
   autoRole: String,
   prefix: String,
 });
-var GuildSchema = new Schema({
+const GuildSchema = new Schema({
   _id: String,
   prefix: String,
   config: ConfigSchema,
 });
 
-var guild = mongoose.model("guildsCodering", GuildSchema);
+const guild = mongoose.model('guildsCodering', GuildSchema);
 
-var createNewGuildEntry = (guildID) => {
+const CreateNewGuildEntry = (guildID) => {
   let newGuild = new guild({
     _id: guildID,
     prefix,
     config: {
-      mutedRole: "",
-      autoRole: "",
+      mutedRole: '',
+      autoRole: '',
     },
   });
-  newGuild.save().catch(console.error);
+  newGuild.save()
 };
 
 module.exports = {
   guild,
-  createNewGuildEntry,
+  CreateNewGuildEntry,
 };

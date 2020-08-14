@@ -1,46 +1,46 @@
-const BaseCommand = require("../utils/structures/BaseCommand");
-var { guild, createNewGuildEntry } = require("../database/Guild");
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require('discord.js');
+const BaseCommand = require('../utils/structures/BaseCommand');
+const { guild, CreateNewGuildEntry } = require('../database/Guild');
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super("changeprefix", "prefix", []);
+    super('changeprefix', 'prefix', []);
   }
 
   async run(client, message, args) {
     guild.findById(message.guild.id, (error, guildTable) => {
       if (error) {
-        console.log(error);
-        return 1;
+        return;
       }
       if (!guildTable) {
-        createNewGuildEntry(message.guild.id);
-        message.reply("Try again!");
+        CreateNewGuildEntry(message.guild.id);
+        message.reply('Try again!');
         return 1;
       }
-      var newPrefix = args[0];
-      if (newPrefix == undefined || newPrefix == null) {
+      const newPrefix = args[0];
+      if (newPrefix === undefined || newPrefix === null) {
         message.delete();
-        message.channel.send("Put a new prefix to use");
+        message.channel.send('Put a new prefix to use');
         return 0;
-      } else if (newPrefix.length > 5) {
+      }
+      if (newPrefix.length > 5) {
         message.delete();
-        message.channel.send("The new prefix cannot exceed 5 characters");
+        message.channel.send('The new prefix cannot exceed 5 characters');
         return 0;
       }
       guildTable.prefix = newPrefix;
       guildTable
         .save()
         .then(() => {
-          let embed = new MessageEmbed()
+          const embed = new MessageEmbed()
             .setTitle(message.guild.name)
             .setDescription(`New prefix: ${newPrefix}`)
-            .setColor("RANDOM")
+            .setColor('RANDOM')
             .setFooter(message.guild.name, message.guild.iconURL)
             .setTimestamp();
           message.channel.send(embed);
         })
-        .catch(console.error);
+      message.channel.send('Error!')
     });
   }
 };
